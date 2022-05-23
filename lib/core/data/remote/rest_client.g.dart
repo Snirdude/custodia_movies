@@ -16,7 +16,7 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<dynamic> getMovieDetails(
+  Future<MovieModel> getMovieDetails(
       {apiKey = RemoteConfig.apiKey,
       id = '',
       name = '',
@@ -34,17 +34,18 @@ class _RestClient implements RestClient {
     };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch(_setStreamType<dynamic>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<MovieModel>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = MovieModel.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<dynamic> searchMoviesAndSeries(
+  Future<SearchResultsModel> searchMoviesAndSeries(
       {apiKey = RemoteConfig.apiKey,
       required search,
       type = '',
@@ -60,12 +61,13 @@ class _RestClient implements RestClient {
     };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch(_setStreamType<dynamic>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/',
-                queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<SearchResultsModel>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = SearchResultsModel.fromJson(_result.data!);
     return value;
   }
 

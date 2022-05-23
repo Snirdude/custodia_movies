@@ -1,3 +1,5 @@
+import 'package:custodia_movies/core/data/model/movie_model.dart';
+import 'package:custodia_movies/core/data/model/search_results_model.dart';
 import 'package:custodia_movies/core/data/remote/remote_config.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -9,7 +11,7 @@ abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET('/')
-  Future getMovieDetails({
+  Future<MovieModel> getMovieDetails({
     @Query('apikey') String apiKey = RemoteConfig.apiKey,
     @Query('i') String id = '',
     @Query('t') String name = '',
@@ -19,7 +21,7 @@ abstract class RestClient {
   });
 
   @GET('/')
-  Future searchMoviesAndSeries({
+  Future<SearchResultsModel> searchMoviesAndSeries({
     @Query('apikey') String apiKey = RemoteConfig.apiKey,
     @Query('s') required String search,
     @Query('type') String type = '',
