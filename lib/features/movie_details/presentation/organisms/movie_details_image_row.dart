@@ -62,6 +62,13 @@ class MovieDetailsImageRow extends StatelessWidget {
                   'IMDB Rating: ${model.imdbRating}',
                   style: textTheme.headline2,
                 ),
+                const Divider(
+                  thickness: 1,
+                ),
+                Text(
+                  'Number of votes: ${model.imdbVotes}',
+                  style: textTheme.headline2,
+                ),
               ],
             ),
           ),
