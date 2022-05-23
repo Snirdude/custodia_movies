@@ -30,9 +30,11 @@ class CAppBar extends HookWidget with PreferredSizeWidget {
       title: showSearch
           ? TextField(
               controller: controller,
+              cursorColor: Colors.black,
               decoration: InputDecoration(
-                  labelText:
-                      'Search ${EnumToString.convertToString(searchType.value)} name'),
+                labelText:
+                    'Search ${EnumToString.convertToString(searchType.value)} name',
+              ),
             )
           : Text(title),
       actions: showSearch
