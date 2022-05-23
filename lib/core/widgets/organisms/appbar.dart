@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:custodia_movies/core/data/model/movie_type.dart';
 import 'package:custodia_movies/core/extensions/context_ext.dart';
+import 'package:custodia_movies/core/extensions/string_ext.dart';
 import 'package:custodia_movies/core/widgets/atoms/appbar_type_button.dart';
 import 'package:custodia_movies/core/widgets/toasts/error_toast.dart';
 import 'package:custodia_movies/features/home/presentation/state/movies_provider.dart';
@@ -26,7 +27,14 @@ class CAppBar extends HookWidget with PreferredSizeWidget {
     final controller = useTextEditingController();
     final searchType = useState(MovieType.movie);
     return AppBar(
-      title: showSearch ? TextField(controller: controller) : Text(title),
+      title: showSearch
+          ? TextField(
+              controller: controller,
+              decoration: InputDecoration(
+                  labelText:
+                      'Search ${EnumToString.convertToString(searchType.value)} name'),
+            )
+          : Text(title),
       actions: showSearch
           ? [
               AppBarTypeButton(searchType: searchType),

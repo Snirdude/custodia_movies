@@ -1,7 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:custodia_movies/core/extensions/context_ext.dart';
+import 'package:custodia_movies/core/routing/router.dart';
+import 'package:custodia_movies/core/widgets/toasts/error_toast.dart';
+import 'package:custodia_movies/features/home/presentation/state/movies_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/data/model/movie_model.dart';
 
@@ -13,8 +19,15 @@ class MovieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        
+      onTap: () async {
+        final result =
+            await context.read<MoviesProvider>().getMovieDetails(model.imdbId);
+        result.fold(
+          (error) =>
+              context.toast.showToast(child: ErrorToast(errorText: error)),
+          (movieModel) =>
+              context.router.push(MovieDetailsPageRoute(model: movieModel)),
+        );
       },
       child: Card(
         elevation: 4,
@@ -26,9 +39,12 @@ class MovieCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Center(
-                    child: CachedNetworkImage(
-                      imageUrl: model.poster,
-                      fit: BoxFit.fitWidth,
+                    child: Hero(
+                      tag: 'movie-image-${model.imdbId}',
+                      child: CachedNetworkImage(
+                        imageUrl: model.poster,
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
                   ),
                 ),

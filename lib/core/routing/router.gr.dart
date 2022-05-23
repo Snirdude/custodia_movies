@@ -22,8 +22,10 @@ class _$AppRouter extends RootStackRouter {
           routeData: routeData, child: const HomePage());
     },
     MovieDetailsPageRoute.name: (routeData) {
+      final args = routeData.argsAs<MovieDetailsPageRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const MovieDetailsPage());
+          routeData: routeData,
+          child: MovieDetailsPage(key: args.key, model: args.model));
     }
   };
 
@@ -44,9 +46,24 @@ class HomePageRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MovieDetailsPage]
-class MovieDetailsPageRoute extends PageRouteInfo<void> {
-  const MovieDetailsPageRoute()
-      : super(MovieDetailsPageRoute.name, path: '/movie-details-page');
+class MovieDetailsPageRoute extends PageRouteInfo<MovieDetailsPageRouteArgs> {
+  MovieDetailsPageRoute({Key? key, required MovieModel model})
+      : super(MovieDetailsPageRoute.name,
+            path: '/movie-details-page',
+            args: MovieDetailsPageRouteArgs(key: key, model: model));
 
   static const String name = 'MovieDetailsPageRoute';
+}
+
+class MovieDetailsPageRouteArgs {
+  const MovieDetailsPageRouteArgs({this.key, required this.model});
+
+  final Key? key;
+
+  final MovieModel model;
+
+  @override
+  String toString() {
+    return 'MovieDetailsPageRouteArgs{key: $key, model: $model}';
+  }
 }

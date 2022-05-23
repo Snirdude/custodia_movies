@@ -23,6 +23,7 @@ class MovieModel with _$MovieModel {
     @Default('') @JsonKey(name: 'Poster') String poster,
     @Default('') @JsonKey(name: 'Metascore') String metascore,
     @Default('') @JsonKey(name: 'imdbRating') String imdbRating,
+    @Default('') @JsonKey(name: 'imdbID') String imdbId,
     @Default('') @JsonKey(name: 'imdbVotes') String imdbVotes,
     @Default('') @JsonKey(name: 'Type') String type,
     @Default('') @JsonKey(name: 'BoxOffice') String boxOffice,

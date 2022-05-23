@@ -17,6 +17,7 @@ class App extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => MoviesProvider(),
       child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.amber,
           textTheme: const TextTheme(
@@ -25,6 +26,9 @@ class App extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
             headline2: TextStyle(
+              fontSize: 16,
+            ),
+            bodyText1: TextStyle(
               fontSize: 16,
             ),
           ),

@@ -28,7 +28,7 @@ class MoviesProvider extends ChangeNotifier {
 
   Future<Either<String, MovieModel>> getMovieDetails(String id) async {
     try {
-      currentMovie = await _restClient.getMovieDetails(id: id);
+      currentMovie = await _restClient.getMovieDetails(id: id, plot: 'full');
     } catch (e) {
       return left(e.toString());
     }

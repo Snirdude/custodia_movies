@@ -52,6 +52,8 @@ mixin _$MovieModel {
   String get metascore => throw _privateConstructorUsedError;
   @JsonKey(name: 'imdbRating')
   String get imdbRating => throw _privateConstructorUsedError;
+  @JsonKey(name: 'imdbID')
+  String get imdbId => throw _privateConstructorUsedError;
   @JsonKey(name: 'imdbVotes')
   String get imdbVotes => throw _privateConstructorUsedError;
   @JsonKey(name: 'Type')
@@ -89,6 +91,7 @@ abstract class $MovieModelCopyWith<$Res> {
       @JsonKey(name: 'Poster') String poster,
       @JsonKey(name: 'Metascore') String metascore,
       @JsonKey(name: 'imdbRating') String imdbRating,
+      @JsonKey(name: 'imdbID') String imdbId,
       @JsonKey(name: 'imdbVotes') String imdbVotes,
       @JsonKey(name: 'Type') String type,
       @JsonKey(name: 'BoxOffice') String boxOffice,
@@ -121,6 +124,7 @@ class _$MovieModelCopyWithImpl<$Res> implements $MovieModelCopyWith<$Res> {
     Object? poster = freezed,
     Object? metascore = freezed,
     Object? imdbRating = freezed,
+    Object? imdbId = freezed,
     Object? imdbVotes = freezed,
     Object? type = freezed,
     Object? boxOffice = freezed,
@@ -191,6 +195,10 @@ class _$MovieModelCopyWithImpl<$Res> implements $MovieModelCopyWith<$Res> {
           ? _value.imdbRating
           : imdbRating // ignore: cast_nullable_to_non_nullable
               as String,
+      imdbId: imdbId == freezed
+          ? _value.imdbId
+          : imdbId // ignore: cast_nullable_to_non_nullable
+              as String,
       imdbVotes: imdbVotes == freezed
           ? _value.imdbVotes
           : imdbVotes // ignore: cast_nullable_to_non_nullable
@@ -235,6 +243,7 @@ abstract class _$$_MovieModelCopyWith<$Res>
       @JsonKey(name: 'Poster') String poster,
       @JsonKey(name: 'Metascore') String metascore,
       @JsonKey(name: 'imdbRating') String imdbRating,
+      @JsonKey(name: 'imdbID') String imdbId,
       @JsonKey(name: 'imdbVotes') String imdbVotes,
       @JsonKey(name: 'Type') String type,
       @JsonKey(name: 'BoxOffice') String boxOffice,
@@ -269,6 +278,7 @@ class __$$_MovieModelCopyWithImpl<$Res> extends _$MovieModelCopyWithImpl<$Res>
     Object? poster = freezed,
     Object? metascore = freezed,
     Object? imdbRating = freezed,
+    Object? imdbId = freezed,
     Object? imdbVotes = freezed,
     Object? type = freezed,
     Object? boxOffice = freezed,
@@ -339,6 +349,10 @@ class __$$_MovieModelCopyWithImpl<$Res> extends _$MovieModelCopyWithImpl<$Res>
           ? _value.imdbRating
           : imdbRating // ignore: cast_nullable_to_non_nullable
               as String,
+      imdbId: imdbId == freezed
+          ? _value.imdbId
+          : imdbId // ignore: cast_nullable_to_non_nullable
+              as String,
       imdbVotes: imdbVotes == freezed
           ? _value.imdbVotes
           : imdbVotes // ignore: cast_nullable_to_non_nullable
@@ -379,6 +393,7 @@ class _$_MovieModel implements _MovieModel {
       @JsonKey(name: 'Poster') this.poster = '',
       @JsonKey(name: 'Metascore') this.metascore = '',
       @JsonKey(name: 'imdbRating') this.imdbRating = '',
+      @JsonKey(name: 'imdbID') this.imdbId = '',
       @JsonKey(name: 'imdbVotes') this.imdbVotes = '',
       @JsonKey(name: 'Type') this.type = '',
       @JsonKey(name: 'BoxOffice') this.boxOffice = '',
@@ -436,6 +451,9 @@ class _$_MovieModel implements _MovieModel {
   @JsonKey(name: 'imdbRating')
   final String imdbRating;
   @override
+  @JsonKey(name: 'imdbID')
+  final String imdbId;
+  @override
   @JsonKey(name: 'imdbVotes')
   final String imdbVotes;
   @override
@@ -450,7 +468,7 @@ class _$_MovieModel implements _MovieModel {
 
   @override
   String toString() {
-    return 'MovieModel(title: $title, year: $year, rated: $rated, released: $released, runtime: $runtime, genre: $genre, director: $director, writer: $writer, actors: $actors, plot: $plot, language: $language, country: $country, awards: $awards, poster: $poster, metascore: $metascore, imdbRating: $imdbRating, imdbVotes: $imdbVotes, type: $type, boxOffice: $boxOffice, totalSeasons: $totalSeasons)';
+    return 'MovieModel(title: $title, year: $year, rated: $rated, released: $released, runtime: $runtime, genre: $genre, director: $director, writer: $writer, actors: $actors, plot: $plot, language: $language, country: $country, awards: $awards, poster: $poster, metascore: $metascore, imdbRating: $imdbRating, imdbId: $imdbId, imdbVotes: $imdbVotes, type: $type, boxOffice: $boxOffice, totalSeasons: $totalSeasons)';
   }
 
   @override
@@ -475,6 +493,7 @@ class _$_MovieModel implements _MovieModel {
             const DeepCollectionEquality().equals(other.metascore, metascore) &&
             const DeepCollectionEquality()
                 .equals(other.imdbRating, imdbRating) &&
+            const DeepCollectionEquality().equals(other.imdbId, imdbId) &&
             const DeepCollectionEquality().equals(other.imdbVotes, imdbVotes) &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.boxOffice, boxOffice) &&
@@ -502,6 +521,7 @@ class _$_MovieModel implements _MovieModel {
         const DeepCollectionEquality().hash(poster),
         const DeepCollectionEquality().hash(metascore),
         const DeepCollectionEquality().hash(imdbRating),
+        const DeepCollectionEquality().hash(imdbId),
         const DeepCollectionEquality().hash(imdbVotes),
         const DeepCollectionEquality().hash(type),
         const DeepCollectionEquality().hash(boxOffice),
@@ -537,6 +557,7 @@ abstract class _MovieModel implements MovieModel {
           @JsonKey(name: 'Poster') final String poster,
           @JsonKey(name: 'Metascore') final String metascore,
           @JsonKey(name: 'imdbRating') final String imdbRating,
+          @JsonKey(name: 'imdbID') final String imdbId,
           @JsonKey(name: 'imdbVotes') final String imdbVotes,
           @JsonKey(name: 'Type') final String type,
           @JsonKey(name: 'BoxOffice') final String boxOffice,
@@ -594,6 +615,9 @@ abstract class _MovieModel implements MovieModel {
   @override
   @JsonKey(name: 'imdbRating')
   String get imdbRating => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'imdbID')
+  String get imdbId => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'imdbVotes')
   String get imdbVotes => throw _privateConstructorUsedError;

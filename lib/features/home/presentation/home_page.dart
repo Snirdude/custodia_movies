@@ -3,6 +3,7 @@ import 'package:custodia_movies/core/widgets/organisms/appbar.dart';
 import 'package:custodia_movies/features/home/presentation/organisms/movie_card.dart';
 import 'package:custodia_movies/features/home/presentation/state/movies_provider.dart';
 import 'package:dismiss_keyboard_on_tap/dismiss_keyboard_on_tap.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:loading_overlay/loading_overlay.dart';
@@ -30,7 +31,7 @@ class HomePage extends HookWidget {
                   child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
+                      crossAxisCount: kIsWeb ? 6 : 2,
                       childAspectRatio: 0.6,
                       crossAxisSpacing: 16,
                     ),
