@@ -12,19 +12,45 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(5),
+    return GestureDetector(
+      onTap: () {
+        
+      },
       child: Card(
-        elevation: 3,
-        child: LayoutBuilder(builder: (context, constraints) {
-          return Column(children: [
-            SizedBox(
-              height: constraints.maxHeight * 0.75,
-              child: CachedNetworkImage(
-                  imageUrl: model.poster, fit: BoxFit.fitHeight),
-            )
-          ]);
-        }),
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Center(
+                    child: CachedNetworkImage(
+                      imageUrl: model.poster,
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0).copyWith(bottom: 0),
+                  child: Text(
+                    model.title,
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    model.year,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

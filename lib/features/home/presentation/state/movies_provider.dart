@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import '../../../../core/data/remote/rest_client.dart';
 import '../../../../core/service_locator/service_locator.dart';
 
-class HomeProvider extends ChangeNotifier {
+class MoviesProvider extends ChangeNotifier {
   List<MovieModel> movies = [];
   MovieModel? currentMovie;
 

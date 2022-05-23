@@ -4,7 +4,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 
-import '../../../features/home/presentation/state/home_provider.dart';
+import '../../../features/home/presentation/state/movies_provider.dart';
 import '../../data/model/movie_type.dart';
 import '../toasts/error_toast.dart';
 
@@ -20,7 +20,7 @@ class AppBarSearchButton extends StatelessWidget {
     return IconButton(
       onPressed: () async {
         if (controller.text.isNotEmpty) {
-          final result = await context.read<HomeProvider>().searchMovies(
+          final result = await context.read<MoviesProvider>().searchMovies(
                 controller.text,
                 type,
               );

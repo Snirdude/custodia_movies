@@ -3,7 +3,7 @@ import 'package:custodia_movies/core/data/model/movie_type.dart';
 import 'package:custodia_movies/core/extensions/context_ext.dart';
 import 'package:custodia_movies/core/widgets/atoms/appbar_type_button.dart';
 import 'package:custodia_movies/core/widgets/toasts/error_toast.dart';
-import 'package:custodia_movies/features/home/presentation/state/home_provider.dart';
+import 'package:custodia_movies/features/home/presentation/state/movies_provider.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
